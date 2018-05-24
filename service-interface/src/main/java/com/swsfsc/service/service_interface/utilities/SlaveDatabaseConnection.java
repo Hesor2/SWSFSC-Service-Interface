@@ -1,13 +1,22 @@
 package com.swsfsc.service.service_interface.utilities;
 
-public class SlaveDatabaseConnection extends DatabaseConnection
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+
+import org.sql2o.Sql2o;
+
+public class SlaveDatabaseConnection  extends Sql2o
 {
-	private final static String DB_URL = "mysql://127.0.0.1:3306/sport_clubs_service?autoReconnect=true&useSSL=false";
 	private static SlaveDatabaseConnection instance;
+	private static String url;
+	private static String user;
+	private static String password;
+	
 	
 	private SlaveDatabaseConnection()
 	{
-		super(DB_URL);
+		super(url, user, password);
 	}
 	
 	public static SlaveDatabaseConnection getInstance()
@@ -17,5 +26,14 @@ public class SlaveDatabaseConnection extends DatabaseConnection
 			instance = new SlaveDatabaseConnection();
 		}
 		return instance;
+	}
+	
+	public static void loadDatabaseCredentials(String credentialsFilePath) throws FileNotFoundException
+	{
+		Scanner sc = new Scanner(new File(credentialsFilePath));
+		url = sc.nextLine();
+		user = sc.nextLine();
+		password = sc.nextLine();
+		sc.close();
 	}
 }
