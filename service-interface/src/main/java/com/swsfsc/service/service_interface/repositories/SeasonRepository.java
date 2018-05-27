@@ -15,7 +15,7 @@ public class SeasonRepository extends Repository
 		Connection con = getSlaveDB().open();
 		seasons = con.createQuery(sql).addParameter("service_code", service_code).addParameter("user_uid", user_uid)
 				.executeAndFetch(Season.class);
-
+		con.close();
 		return seasons;
 	}
 
@@ -26,7 +26,7 @@ public class SeasonRepository extends Repository
 		Connection con = getSlaveDB().open();
 		seasons = con.createQuery(sql).addParameter("service_code", service_code).addParameter("user_uid", user_uid)
 				.executeAndFetch(Season.class);
-
+		con.close();
 		return seasons;
 	}
 
@@ -38,7 +38,7 @@ public class SeasonRepository extends Repository
 		newSeason = con.createQuery(sql).addParameter("service_code", service_code).addParameter("user_uid", user_uid)
 				.addParameter("name", season.getName()).addParameter("start_date", season.getStart_date())
 				.addParameter("end_date", season.getEnd_date()).executeAndFetchFirst(Season.class);
-
+		con.close();
 		return newSeason;
 	}
 }
