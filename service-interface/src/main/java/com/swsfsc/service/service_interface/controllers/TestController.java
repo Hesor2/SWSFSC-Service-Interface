@@ -14,10 +14,10 @@ import com.swsfsc.service.service_interface.utilities.FirebaseConnection;
 @RestController
 public class TestController
 {
-	SeasonRepository repo = new SeasonRepository();
-	FirebaseConnection firebase = new FirebaseConnection();
+	private SeasonRepository repo = new SeasonRepository();
+	private FirebaseConnection firebase = new FirebaseConnection();
 
-	@SuppressWarnings("deprecation")
+	/*@SuppressWarnings("deprecation")
 	@RequestMapping("/test")
 	public String setupTest(@RequestHeader("ServiceCode") String service_code,
 			@RequestHeader("Authorization") String auth_token) throws FirebaseAuthException
@@ -31,5 +31,5 @@ public class TestController
 			repo.create(service_code, uid, season);
 		}
 		return "Setup Completed";
-	}
+	}*/
 }

@@ -8,15 +8,6 @@ public class Season
 	private Timestamp start_date;
 	private Timestamp end_date;
 	
-	public Season(String name, Timestamp start_date, Timestamp end_date)
-	{
-		this.name = name;
-		this.start_date = start_date;
-		this.end_date = end_date;
-	}
-	
-	public Season() {}
-	
 	public String getName()
 	{
 		return name;
