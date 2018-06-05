@@ -8,7 +8,7 @@ public class FirebaseConnection
 {
 	public String getUid(String auth_token) throws FirebaseAuthException
 	{
-		return "uid 1";/*
+		return "0h1HL0WQopYM1EduLKrYFW3bjJf1";/*
 		FirebaseToken decodedToken;
 		decodedToken = FirebaseAuth.getInstance().verifyIdToken(auth_token);
 		return decodedToken.getUid();*/
